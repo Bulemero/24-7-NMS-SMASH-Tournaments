@@ -10,35 +10,38 @@ body {
     height: 20vh;
     display: flex;
     flex-flow: row wrap;
+    justify-content: center;
     background: #000000;
-    
+
 }
 
 .streamLogo {
     height: 10vh;
-    display: flex;
-    align-content: flex-start;
+    align-self: center;
+    margin: 15px 0px 0px 0px;
+
 }
 
-.smashLogo {
-    height: 10vh;
-    display: flex;
-    align-content: flex-end;
-}
 
-.pageTitle{
+.pageTitle {
     display: flex;
     align-self: center;
-    
+    margin: auto;
+
 }
 
 
 /*BODY*/
 
 .mainBody {
-    height: 70vh;
-    margin-top: 50px;
-    margin-bottom: -50px;
+    height: 65vh;
+    margin: auto;
+    font-weight: bold;
+    color: red;
+    background-image: url(../images/smashLogoCropped.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 /*FOOTER*/
@@ -48,6 +51,12 @@ body {
     flex-flow: row nowrap;
     align-items: center;
     border-style: solid;
-    height: 10vh;
+    height: 15vh;
     background: #000000;
+}
+
+.navbar-brand {
+    display: flex;
+    flex-flow: row wrap;
+
 }
