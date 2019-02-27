@@ -1,0 +1,53 @@
+body {
+    background: #36393F;
+    color: #DCDDDE;
+}
+
+/*HEADER*/
+
+.streamAndSmash {
+    text-align: center;
+    height: 20vh;
+    display: flex;
+    flex-flow: row wrap;
+    background: #000000;
+    
+}
+
+.streamLogo {
+    height: 10vh;
+    display: flex;
+    align-content: flex-start;
+}
+
+.smashLogo {
+    height: 10vh;
+    display: flex;
+    align-content: flex-end;
+}
+
+.pageTitle{
+    display: flex;
+    align-self: center;
+    
+}
+
+
+/*BODY*/
+
+.mainBody {
+    height: 70vh;
+    margin-top: 50px;
+    margin-bottom: -50px;
+}
+
+/*FOOTER*/
+
+.navbar {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    border-style: solid;
+    height: 10vh;
+    background: #000000;
+}
