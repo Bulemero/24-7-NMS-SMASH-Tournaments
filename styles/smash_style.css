@@ -37,11 +37,41 @@ body {
     height: 65vh;
     margin: auto;
     font-weight: bold;
-    color: red;
+    color: crimson;
     background-image: url(../images/smashLogoCropped.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    
+}
+
+.brackets{
+    overflow-y: scroll;
+    width: 375px;
+    height: 430px;
+    margin: auto;
+    text-align: center;
+    
+}
+
+.rounds{
+    text-align: center;
+    border-style: ridge;
+    border-collapse: collapse;
+    border-color: aliceblue;
+}
+
+.leaders{
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    border-style: ridge;
+    border-collapse: collapse;
+    border-color: aliceblue;
+}
+
+.results{
+    text-align: right;
 }
 
 /*FOOTER*/
