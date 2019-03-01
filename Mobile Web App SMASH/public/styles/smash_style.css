@@ -1,0 +1,92 @@
+body {
+    background: #36393F;
+    color: #DCDDDE;
+}
+
+/*HEADER*/
+
+.streamAndSmash {
+    text-align: center;
+    height: 20vh;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    background: #000000;
+
+}
+
+.streamLogo {
+    height: 10vh;
+    align-self: center;
+    margin: 15px 0px 0px 0px;
+
+}
+
+
+.pageTitle {
+    display: flex;
+    align-self: center;
+    margin: auto;
+
+}
+
+
+/*BODY*/
+
+.mainBody {
+    height: 65vh;
+    margin: auto;
+    font-weight: bold;
+    color: crimson;
+    background-image: url(../images/smashLogoCropped.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    
+}
+
+.brackets{
+    overflow-y: scroll;
+    width: 375px;
+    height: 430px;
+    margin: auto;
+    text-align: center;
+    
+}
+
+.rounds{
+    text-align: center;
+    border-style: ridge;
+    border-collapse: collapse;
+    border-color: aliceblue;
+}
+
+.leaders{
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    border-style: ridge;
+    border-collapse: collapse;
+    border-color: aliceblue;
+}
+
+.results{
+    text-align: right;
+}
+
+/*FOOTER*/
+
+.navbar {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    border-style: solid;
+    height: 15vh;
+    background: #000000;
+}
+
+.navbar-brand {
+    display: flex;
+    flex-flow: row wrap;
+
+}
