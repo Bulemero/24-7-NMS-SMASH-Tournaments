@@ -45,7 +45,12 @@ body {
     
 }
 
-.brackets{
+#home{
+    display: block;
+}
+
+#rounds{
+    display: none;
     overflow-y: scroll;
     width: 375px;
     height: 430px;
@@ -54,14 +59,28 @@ body {
     
 }
 
-.rounds{
+#leaders{
+    display: none;
+    overflow-y: scroll;
+    width: 375px;
+    height: 430px;
+    margin: auto;
+    text-align: center;
+    
+}
+
+#rules{
+    display: none;
+}
+
+.matches{
     text-align: center;
     border-style: ridge;
     border-collapse: collapse;
     border-color: aliceblue;
 }
 
-.leaders{
+.scores{
     display: flex;
     justify-content: space-between;
     text-align: left;
