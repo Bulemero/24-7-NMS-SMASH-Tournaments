@@ -44,7 +44,7 @@
 
     <div id="app">
         <div class="mainBody">
-            <div id="home" data-page="home">
+            <div id="home" data-page="home" v-if="active == 'home'">
                 <p>Welcome to the 24/7 Nintendo Music Stream SMASH Tournaments Mobile App!!</p>
 
                 <p>Please, join the next Tournament by adding the below information:</p>
@@ -60,7 +60,7 @@
                 <button>Submit</button>
             </div>
 
-            <div id="rounds" data-page="rounds">
+            <div id="rounds" data-page="rounds" v-if="active == 'rounds'">
                 <h3>Round 1</h3>
                 <div class="matches">Player01 VS Player02</div>
                 <div class="matches">Player03 VS Player04</div>
@@ -92,8 +92,20 @@
 
             </div>
 
+            <div id="chat" class="chat" data-page="chat" v-show="active == 'chat'">
+                <div id="posts" class="box">
+                    Loading posts...
+                </div>
 
-            <div id="leaders" data-page="leaders">
+                <div class="inputs">
+                    <input id="textInput" class="input" type="text" placeholder="Your message...">
+
+                    <button id="login" class="button is-info" onclick="login()">Login!</button>
+                    <button id="create-post" class="button is-primary" onclick="writeNewPost()">Send</button>
+                </div>
+            </div>
+
+            <div id="leaders" data-page="leaders" v-if="active == 'leaders'">
                 <h3>Leaderboard</h3>
                 <div class="scores">01. Player 01<div class="results">4W/0L</div>
                 </div>
@@ -116,7 +128,7 @@
             </div>
 
 
-            <div id="rules" data-page="rules">
+            <div id="rules" data-page="rules" v-if="active == 'rules'">
                 <p>24/7 Nintendo Music Stream and Dyscord Smash Bros. Ultimate Competitive Ruleset</p>
 
                 <p>Important note: If you notice any of these rules being broken make sure to save the replay of your match and report it to the Tournament Organizers (TO) in the Tournament Discord channel.</p>
@@ -141,13 +153,14 @@
             <nav class="navbar navbar-expand-xl navbar-dark">
                 <a v-on:click="setPage('home')" class="navbar-text active"><img src="./images/marioIcon2.png" width="50" height="50" class="d-block align-top" alt="Mario">Home</a>
                 <a v-on:click="setPage('rounds')" class="navbar-text"><img src="./images/linkIcon2.png" width="50" height="50" class="d-block align-top" alt="Link">Rounds</a>
+                <a v-on:click="setPage('chat')" class="navbar-text"><img src="./images/dkIcon2.png" width="50" height="50" class="d-block align-top" alt="Link">Chat</a>
                 <a v-on:click="setPage('leaders')" class="navbar-text"><img src="./images/samusIcon2.png" width="50" height="50" class="d-block align-top" alt="Samus">Leaders</a>
                 <a v-on:click="setPage('rules')" class="navbar-text"><img src="./images/pikachuIcon2.png" width="50" height="50" class="d-block align-top" alt="Pikachu">Rules</a>
             </nav>
         </div>
     </div>
 
-    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
     <script>
         // Initialize Firebase
         var config = {
@@ -167,6 +180,9 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+
     <script src="mainSmash.js"></script>
 
 </body>

@@ -37,20 +37,28 @@ body {
     height: 65vh;
     margin: auto;
     font-weight: bold;
-    color: crimson;
+    color: #DCDDDE;
     background-image: url(../images/smashLogoCropped.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+
     
 }
 
 #home{
-    display: none;
 }
 
 #rounds{
-    display: none;
+    overflow-y: scroll;
+    width: 375px;
+    height: 430px;
+    margin: auto;
+    text-align: center;
+    
+}
+
+#chat{
     overflow-y: scroll;
     width: 375px;
     height: 430px;
@@ -60,7 +68,6 @@ body {
 }
 
 #leaders{
-    display: none;
     overflow-y: scroll;
     width: 375px;
     height: 430px;
@@ -70,7 +77,6 @@ body {
 }
 
 #rules{
-    display: none;
 }
 
 .matches{

@@ -4,6 +4,7 @@ var myVueObject = new Vue({
     el: "#app",
     data: {
 
+        active: 'home',
         players: [
             {
                 GoogleLogin: "Joel Humphries",
@@ -89,15 +90,19 @@ var myVueObject = new Vue({
 
     ]
     },
-    
+
     methods: {
-        
+
         //document.querySelectorAll("[data-page]")
-        
-        setPage(activePage){
-            console.log("Hi",activePage)
+
+        setPage(activePage) {
+
+            this.active = activePage;
+
         }
     }
+
+
 })
 
 
@@ -110,91 +115,94 @@ var myVueObject = new Vue({
 
 //DISPLAY FUNCTIONS
 
-/* EXAMPLE OF HIDE/SHOW FUNCTION
 
-<button onclick="myFunction()">Click Me</button>
-
-<div id="myDIV">
-  This is my DIV element.
-</div>
+document.getElementById("login").addEventListener("click", login);
+document.getElementById("create-post").addEventListener("click", writeNewPost);
 
 
+getPosts();
 
-function myFunction() {
-  var x = document.getElementById("myDIV");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
+function login() {
 
-*/
+    // https://firebase.google.com/docs/auth/web/google-signin
 
-/*function hideNShowHo() {
+    //Provider
 
-    var toggle = document.getElementById("home");
-    
-    if (toggle.style.display === "none") {
-        toggle.style.display = "block";
-    } else {
-        toggle.style.display = "none";
-    }
-}
+    var provider = new firebase.auth.GoogleAuthProvider();
 
-function hideNShowRo() {
+    //How to signin
 
-    var toggle = document.getElementById("rounds");
-    
-    if (toggle.style.display === "none") {
-        toggle.style.display = "block";
-    } else {
-        toggle.style.display = "none";
-    }
+    firebase.auth().signInWithPopup(provider)
+
+
+        //to push messages into chat page
+
+        .then(function (result) {
+            if (result.credential) {
+                getPosts()
+            }
+        }).catch(console.log("error"))
+
+
+    console.log("login")
+
+
+
+
+
+
 }
 
 
-function hideNShowLe(){
-    
-    var toggle = document.getElementById("leaders");
-    
-    if (toggle.style.display === "none") {
-        toggle.style.display = "block";
-    } else {
-        toggle.style.display = "none";
-    } 
+function writeNewPost() {
+
+    // https://firebase.google.com/docs/database/web/read-and-write
+
+    //Values from HTML
+
+    var text = document.getElementById("textInput").value;
+    var name = firebase.auth().currentUser.displayName;
+
+    var objectToSend = {
+        message: text,
+        author: name
+    };
+
+    //change the ref below to create different databases on firebase
+
+    firebase.database().ref("chupiChat2").push(objectToSend);
+
+    console.log(objectToSend);
+
+
+    // Values
+
+
+    console.log("write");
+
 }
 
-function hideNShowRules(){
-    
-    var toggle = document.getElementById("rules");
-    
-    if (toggle.style.display === "none") {
-        toggle.style.display = "block";
-    } else {
-        toggle.style.display = "none";
-    } 
-    
-}
 
+function getPosts() {
 
+    //Get messages
 
-function hideNShowAll(){
-    
-    var buttons = ["#home", "#rounds", "#leaders", "#rules"]; 
-    
-    for (i = 0; i < buttons.length; i++){
-        
-        if (buttons[i].style.display === "none") {
-            buttons.style.display = "block";
-        } else {
-            buttons.style.display = "none";
+    firebase.database().ref('chupiChat2').on('value', function (data) {
+        var posts = document.getElementById("posts");
+        posts.innerHTML = "";
+        console.log(data.val());
+        var messages = data.val();
+
+        for (var key in messages) {
+            var text = document.createElement("div");
+            var element = messages[key];
+
+            text.append(element.message);
+            text.append(element.author);
+            posts.append(text);
         }
-    }
+    })
 
-}*/
+    console.log("getting posts");
 
-
-
-
-
+}
