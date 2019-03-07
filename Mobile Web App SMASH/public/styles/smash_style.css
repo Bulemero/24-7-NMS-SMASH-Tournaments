@@ -1,6 +1,7 @@
 body {
     background: #36393F;
     color: #DCDDDE;
+
 }
 
 /*HEADER*/
@@ -43,50 +44,87 @@ body {
     background-size: cover;
     background-position: center;
 
-    
+
 }
 
-#home{
+#home {
+    background-color: rgba(33, 33, 33, 0.38);
 }
 
-#rounds{
+#rounds {
     overflow-y: scroll;
     width: 375px;
     height: 430px;
     margin: auto;
     text-align: center;
-    
+    background-color: rgba(33, 33, 33, 0.38);
+
 }
 
-#chat{
+#chat {
     overflow-y: scroll;
     width: 375px;
     height: 430px;
     margin: auto;
     text-align: center;
-    
+
+
 }
 
-#leaders{
+#posts {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+#leaders {
     overflow-y: scroll;
     width: 375px;
     height: 430px;
     margin: auto;
     text-align: center;
-    
+    background-color: rgba(33, 33, 33, 0.38);
+
 }
 
-#rules{
+#rules {
+    overflow-y: scroll;
+    width: 375px;
+    height: 430px;
+    margin: auto;
+    background-color: rgba(33, 33, 33, 0.38);
 }
 
-.matches{
+.ownMessage {
+    background-color: rgba(30, 234, 226, 0.49);
+    color: black;
+    padding: 5px;
+    margin: 4px;
+    border: 1px solid black;
+    border-radius: 10px;
+    align-self: flex-end;
+    text-align: right;
+}
+
+.foreignerMessage {
+    background-color: rgba(255, 255, 255, 0.49);
+    color: black;
+    padding: 5px;
+    margin: 4px;
+    border: 1px solid black;
+    border-radius: 10px;
+    align-self: flex-start;
+    text-align: left;
+
+}
+
+.matches {
     text-align: center;
     border-style: ridge;
     border-collapse: collapse;
     border-color: aliceblue;
 }
 
-.scores{
+.scores {
     display: flex;
     justify-content: space-between;
     text-align: left;
@@ -95,7 +133,7 @@ body {
     border-color: aliceblue;
 }
 
-.results{
+.results {
     text-align: right;
 }
 

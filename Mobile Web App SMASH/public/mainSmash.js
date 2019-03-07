@@ -110,17 +110,17 @@ var myVueObject = new Vue({
 //CALL FUNCTIONS
 
 
-
+getPosts();
 
 
 //DISPLAY FUNCTIONS
 
 
-document.getElementById("login").addEventListener("click", login);
-document.getElementById("create-post").addEventListener("click", writeNewPost);
+//document.getElementById("login").addEventListener("click", login);
+//document.getElementById("create-post").addEventListener("click", writeNewPost);
 
 
-getPosts();
+
 
 function login() {
 
@@ -140,13 +140,15 @@ function login() {
         .then(function (result) {
             if (result.credential) {
                 getPosts()
+                document.getElementById("login").style.display = "none"
             }
-        }).catch(console.log("error"))
+        })
+
+
+        .catch(console.log("error"))
 
 
     console.log("login")
-
-
 
 
 
@@ -194,12 +196,26 @@ function getPosts() {
         var messages = data.val();
 
         for (var key in messages) {
-            var text = document.createElement("div");
             var element = messages[key];
 
-            text.append(element.message);
-            text.append(element.author);
+            var text = document.createElement("div");
+            if (element.author == firebase.auth().currentUser.displayName) {
+                text.classList.add("ownMessage");
+            } else {
+                text.classList.add("foreignerMessage");
+
+            }
+
+            var name = document.createElement("p");
+            var mess = document.createElement("p");
+
+
+            mess.append(element.message);
+            name.append(element.author);
+
+            text.append(name, mess);
             posts.append(text);
+
         }
     })
 
