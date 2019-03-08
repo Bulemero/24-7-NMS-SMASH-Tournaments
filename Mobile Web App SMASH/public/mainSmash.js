@@ -164,10 +164,12 @@ function writeNewPost() {
 
     var text = document.getElementById("textInput").value;
     var name = firebase.auth().currentUser.displayName;
+    var avatar = firebase.auth().currentUser.photoURL;
 
     var objectToSend = {
         message: text,
-        author: name
+        author: name,
+        image: avatar,
     };
 
     //change the ref below to create different databases on firebase
@@ -205,15 +207,20 @@ function getPosts() {
                 text.classList.add("foreignerMessage");
 
             }
-
+ var divBox = document.createElement("div");
+            divBox.setAttribute("class", "avatar")
             var name = document.createElement("p");
+            var logo = document.createElement("img");
+            logo.setAttribute("src",element.image);
+            logo.setAttribute("alt","avatar");
             var mess = document.createElement("p");
 
 
             mess.append(element.message);
             name.append(element.author);
+            divBox.append(logo,name);
 
-            text.append(name, mess);
+            text.append(divBox, mess);
             posts.append(text);
 
         }
