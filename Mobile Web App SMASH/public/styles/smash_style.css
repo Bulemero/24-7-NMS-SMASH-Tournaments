@@ -37,6 +37,7 @@ body {
 .mainBody {
     height: 65vh;
     margin: auto;
+/*    padding-bottom: 15vh;*/
     font-weight: bold;
     color: #DCDDDE;
     background-image: url(../images/smashLogoCropped.png);
@@ -161,5 +162,28 @@ body {
 .navbar-brand {
     display: flex;
     flex-flow: row wrap;
+
+}
+
+
+/* MEDIA QUERIES */
+
+/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) { 
+
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) { 
 
 }

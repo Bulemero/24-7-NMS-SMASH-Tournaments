@@ -170,6 +170,7 @@ function writeNewPost() {
         message: text,
         author: name,
         image: avatar,
+        time: Date.now()
     };
 
     //change the ref below to create different databases on firebase
@@ -207,18 +208,22 @@ function getPosts() {
                 text.classList.add("foreignerMessage");
 
             }
- var divBox = document.createElement("div");
+            var divBox = document.createElement("div");
             divBox.setAttribute("class", "avatar")
             var name = document.createElement("p");
+            
             var logo = document.createElement("img");
-            logo.setAttribute("src",element.image);
-            logo.setAttribute("alt","avatar");
+            logo.setAttribute("src", element.image);
+            logo.setAttribute("alt", "avatar");
+            
             var mess = document.createElement("p");
-
-
+            
+            var newDate = new Date(element.time);
+            console.log(formatDate(newDate));
+            
             mess.append(element.message);
             name.append(element.author);
-            divBox.append(logo,name);
+            divBox.append(logo, name);
 
             text.append(divBox, mess);
             posts.append(text);
@@ -228,4 +233,38 @@ function getPosts() {
 
     console.log("getting posts");
 
+}
+
+function scrollToBottom() {
+
+    window.scrollTo(0, document.body.scrollHeight);
+    //    window.scrollTo(0,document.querySelector("posts.scrollingContainer").scrollHeight);
+}
+
+function reset() {
+    var resetButton = document.getElementById("textInput");
+    if (resetButton) {
+        resetButton.value = "";
+    }
+}
+
+function formatDate(date) {
+
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    const ampm = hours >= 12 ? "pm" : "am";
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    const strTime = hours + ":" + minutes + " " + ampm;
+    return (
+        date.getMonth() +
+        1 +
+        "/" +
+        date.getDate() +
+        "/" +
+        date.getFullYear() +
+        "  " +
+        strTime
+    );
 }
