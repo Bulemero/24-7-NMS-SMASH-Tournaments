@@ -109,7 +109,6 @@ var myVueObject = new Vue({
 
 //CALL FUNCTIONS
 
-
 getPosts();
 
 
@@ -225,21 +224,18 @@ function getPosts() {
             name.append(element.author);
             divBox.append(logo, name);
 
-            text.append(divBox, mess);
+            text.append(divBox, mess, formatDate(newDate));
             posts.append(text);
 
         }
+        
+        document.getElementById("chat").scrollTop = document.getElementById("chat").scrollHeight
     })
 
     console.log("getting posts");
 
 }
 
-function scrollToBottom() {
-
-    window.scrollTo(0, document.body.scrollHeight);
-    //    window.scrollTo(0,document.querySelector("posts.scrollingContainer").scrollHeight);
-}
 
 function reset() {
     var resetButton = document.getElementById("textInput");
@@ -258,13 +254,19 @@ function formatDate(date) {
     minutes = minutes < 10 ? "0" + minutes : minutes;
     const strTime = hours + ":" + minutes + " " + ampm;
     return (
-        date.getMonth() +
-        1 +
-        "/" +
-        date.getDate() +
-        "/" +
-        date.getFullYear() +
-        "  " +
+//        date.getMonth() +
+//        1 +
+//        "/" +
+//        date.getDate() +
+//        "/" +
+//        date.getFullYear() +
+//        "  " +
         strTime
     );
 }
+
+//if (window.navigator.standalone) {
+//    // The app is running in standalone mode.
+//}
+//
+

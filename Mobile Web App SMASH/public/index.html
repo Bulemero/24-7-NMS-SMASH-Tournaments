@@ -3,7 +3,18 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Allow web app to be run in full-screen mode. -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Make the app title different than the page title. -->
+    <meta name="apple-mobile-web-app-title" content="SMASH">
+
+    <!-- Configure the status bar. -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
 
     <link rel="apple-touch-icon" sizes="57x57" href="images/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="images/favicon/apple-icon-60x60.png">
@@ -19,6 +30,7 @@
     <link rel="icon" type="image/png" sizes="96x96" href="images/favicon/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
 
+    <link rel="apple-touch-startup-image" href="images/smashBackgroundCropped.png">
 
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -92,11 +104,14 @@
 
             </div>
 
-            <div id="chat" class="chat" data-page="chat" v-show="active == 'chat'">
-                <div id="posts" class="box">
-                    Loading posts...
-                </div>
 
+            <div id="chat" class="chat" data-page="chat" v-show="active == 'chat'">
+                <div>
+                    <div id="posts" class="box">
+                        Loading posts...
+                    </div>
+
+                </div>
                 <div class="inputs">
                     <input id="textInput" class="input" type="text" placeholder="Your message...">
 
