@@ -59,10 +59,10 @@
             <div id="home" data-page="home" v-if="active == 'home'">
                 <p>Welcome to the 24/7 Nintendo Music Stream SMASH Tournaments Mobile App!!</p>
 
-                <p>Please, join the next Tournament by adding the below information:</p>
+                <p class="test">Please, join the next Tournament by adding the below information:</p>
 
                 <p>1. Youtube login</p>
-                <p>2. Discord username and tag</p>
+                <p class="test2">2. Discord username and tag</p>
                 <p>3. Switch FC</p>
                 <p>4. Your Timezone.</p>
                 <p>5. Preferred gaming times (morning/afternoon/evening)</p>
@@ -165,7 +165,7 @@
         </div>
 
         <div class="navBar">
-            <nav class="navbar navbar-expand-xl navbar-dark">
+            <nav class="navbar fixed-bottom navbar-expand-xl navbar-dark">
                 <a v-on:click="setPage('home')" class="navbar-text active"><img src="./images/marioIcon2.png" width="50" height="50" class="d-block align-top" alt="Mario">Home</a>
                 <a v-on:click="setPage('rounds')" class="navbar-text"><img src="./images/linkIcon2.png" width="50" height="50" class="d-block align-top" alt="Link">Rounds</a>
                 <a v-on:click="setPage('chat')" class="navbar-text"><img src="./images/dkIcon2.png" width="50" height="50" class="d-block align-top" alt="Link">Chat</a>
